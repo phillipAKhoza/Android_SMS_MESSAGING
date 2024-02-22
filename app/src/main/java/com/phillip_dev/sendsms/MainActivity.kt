@@ -50,4 +50,24 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == 1 && grantResults.size>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            val smsManager : SmsManager
+
+            if(Build.VERSION.SDK_INT >= 23){
+                smsManager = this.getSystemService(SmsManager::class.java)
+            }else{
+                smsManager = SmsManager.getDefault()
+            }
+
+            smsManager.sendTextMessage(userNumber,null,userMessage,null,null,)
+        }
+    }
 }
