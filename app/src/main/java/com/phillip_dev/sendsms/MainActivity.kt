@@ -12,5 +12,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        message = findViewById(R.id.editTxtMessage)
+        phone = findViewById(R.id.editTxtPhoneNum)
+        send = findViewById(R.id.btnSend)
     }
 }
