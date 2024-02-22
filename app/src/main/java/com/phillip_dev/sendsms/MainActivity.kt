@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.telephony.SmsManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
@@ -68,6 +69,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             smsManager.sendTextMessage(userNumber,null,userMessage,null,null,)
+
+            Toast.makeText(applicationContext,"Message Sent!", Toast.LENGTH_LONG).show()
         }
     }
 }
