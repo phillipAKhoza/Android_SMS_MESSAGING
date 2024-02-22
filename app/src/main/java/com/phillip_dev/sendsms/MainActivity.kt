@@ -1,9 +1,13 @@
 package com.phillip_dev.sendsms
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     lateinit var message : EditText
@@ -27,6 +31,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendSMS(userMessage: String, userPhone: String){
+
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS),1)
+        }else{
+
+        }
 
     }
 }
