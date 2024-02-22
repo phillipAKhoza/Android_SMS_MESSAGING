@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var phone: EditText
     lateinit var send: Button
     var userMessage = ""
-    var userNumber = 0L
+    var userNumber = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,11 +21,12 @@ class MainActivity : AppCompatActivity() {
 
         send.setOnClickListener {
             userMessage= message.text.toString()
-            userNumber = phone.text.toString().toLong()
+            userNumber = phone.text.toString()
+            sendSMS(userMessage,userNumber)
         }
     }
 
-    fun sendSMS(userMessage: String, userPhone: Long){
+    fun sendSMS(userMessage: String, userPhone: String){
 
     }
 }
