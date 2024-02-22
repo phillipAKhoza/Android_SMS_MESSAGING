@@ -24,4 +24,8 @@ class MainActivity : AppCompatActivity() {
             userNumber = phone.text.toString().toLong()
         }
     }
+
+    fun sendSMS(userMessage: String, userPhone: Long){
+
+    }
 }
